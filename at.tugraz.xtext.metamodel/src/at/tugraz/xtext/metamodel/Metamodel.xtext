@@ -1,0 +1,64 @@
+grammar at.tugraz.xtext.metamodel.Metamodel with org.eclipse.xtext.common.Terminals
+
+generate metamodel "http://www.tugraz.at/xtext/metamodel/Metamodel"
+
+Domainmodel: 
+  (elements += AbstractElement)*
+;
+
+AbstractElement:
+	Type | Function
+;
+
+Type:
+	Datatype | Object //| SecureObject
+;
+
+Datatype:
+	"datatype" name = ID ("{"
+		(restrictions += Restriction)*
+	"}")+
+;
+
+Restriction:
+	StringRestriction | ValueRestriction
+;
+
+StringRestriction:
+	"maxlength" maxlength = INT
+	"minlength" minlength = INT
+	
+;
+
+ValueRestriction:
+	"maxvalue" maxvalue = INT
+	"minvalue" minvalue = INT
+	
+;
+
+//SecureObject:
+//	"object" name = ID "{"
+//		(members += Member)*
+//	"}"
+//;
+
+Member:
+	name = ID ':' type = [Type]
+;
+
+Object:
+	"object" name = ID ('extends' superType = [Object])? "{"
+		(members += Member)*
+		(issecure ?= "issecure")?
+	"}"
+;
+
+Function:
+	"function" name = ID ('extends' superType = [Object])? "{"
+		"id" identifier = INT
+		(issecure ?= "issecure")?
+		("gets" inputs+=[Type]* )? 
+		("returns" outpust+=[Type]* )?
+		
+	"}"
+;
