@@ -14,10 +14,15 @@ Type:
 	Datatype | Object //| SecureObject
 ;
 
+RegExType:
+	Type | "(optional)" Type | "(repeat)" Type
+;
+
 Datatype:
 	"datatype" name = ID ("{"
+		("defaultvalue=" defaultValue = STRING)? //TODO Will ich das?
 		(restrictions += Restriction)*
-	"}")+
+	"}")?
 ;
 
 Restriction:
@@ -48,17 +53,20 @@ Member:
 
 Object:
 	"object" name = ID ('extends' superType = [Object])? "{"
-		(members += Member)*
+		(members += Member ( "{"
+			restrictions += Restriction
+			"}")*
+		)*
 		(issecure ?= "issecure")?
 	"}"
 ;
 
 Function:
 	"function" name = ID ('extends' superType = [Object])? "{"
-		"id" identifier = INT
+		"id" identifier = INT //TODO unique prüfen
 		(issecure ?= "issecure")?
-		("gets" inputs+=[Type]* )? 
-		("returns" outpust+=[Type]* )?
+		("gets" inputs+=[RegExType]* )? 
+		("returns" outpust+=[RegExType]* )?
 		
 	"}"
 ;
