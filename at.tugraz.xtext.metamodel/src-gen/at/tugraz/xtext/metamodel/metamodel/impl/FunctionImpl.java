@@ -3,12 +3,13 @@
 package at.tugraz.xtext.metamodel.metamodel.impl;
 
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
-import at.tugraz.xtext.metamodel.metamodel.Type;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -17,7 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,24 +91,24 @@ public class FunctionImpl extends AbstractElementImpl implements Function
   protected boolean issecure = ISSECURE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getInputs() <em>Inputs</em>}' reference list.
+   * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInputs()
    * @generated
    * @ordered
    */
-  protected EList<Type> inputs;
+  protected EList<FunctionType> inputs;
 
   /**
-   * The cached value of the '{@link #getOutpust() <em>Outpust</em>}' reference list.
+   * The cached value of the '{@link #getOutpust() <em>Outpust</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOutpust()
    * @generated
    * @ordered
    */
-  protected EList<Type> outpust;
+  protected EList<FunctionType> outpust;
 
   /**
    * <!-- begin-user-doc -->
@@ -223,11 +225,11 @@ public class FunctionImpl extends AbstractElementImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getInputs()
+  public EList<FunctionType> getInputs()
   {
     if (inputs == null)
     {
-      inputs = new EObjectResolvingEList<Type>(Type.class, this, MetamodelPackage.FUNCTION__INPUTS);
+      inputs = new EObjectContainmentEList<FunctionType>(FunctionType.class, this, MetamodelPackage.FUNCTION__INPUTS);
     }
     return inputs;
   }
@@ -237,13 +239,31 @@ public class FunctionImpl extends AbstractElementImpl implements Function
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getOutpust()
+  public EList<FunctionType> getOutpust()
   {
     if (outpust == null)
     {
-      outpust = new EObjectResolvingEList<Type>(Type.class, this, MetamodelPackage.FUNCTION__OUTPUST);
+      outpust = new EObjectContainmentEList<FunctionType>(FunctionType.class, this, MetamodelPackage.FUNCTION__OUTPUST);
     }
     return outpust;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MetamodelPackage.FUNCTION__INPUTS:
+        return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+      case MetamodelPackage.FUNCTION__OUTPUST:
+        return ((InternalEList<?>)getOutpust()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -293,11 +313,11 @@ public class FunctionImpl extends AbstractElementImpl implements Function
         return;
       case MetamodelPackage.FUNCTION__INPUTS:
         getInputs().clear();
-        getInputs().addAll((Collection<? extends Type>)newValue);
+        getInputs().addAll((Collection<? extends FunctionType>)newValue);
         return;
       case MetamodelPackage.FUNCTION__OUTPUST:
         getOutpust().clear();
-        getOutpust().addAll((Collection<? extends Type>)newValue);
+        getOutpust().addAll((Collection<? extends FunctionType>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

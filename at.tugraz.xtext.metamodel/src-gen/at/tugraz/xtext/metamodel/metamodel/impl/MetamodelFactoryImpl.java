@@ -6,9 +6,11 @@ import at.tugraz.xtext.metamodel.metamodel.AbstractElement;
 import at.tugraz.xtext.metamodel.metamodel.Datatype;
 import at.tugraz.xtext.metamodel.metamodel.Domainmodel;
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.Member;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelFactory;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
+import at.tugraz.xtext.metamodel.metamodel.Restriction;
 import at.tugraz.xtext.metamodel.metamodel.Type;
 
 import org.eclipse.emf.ecore.EClass;
@@ -74,7 +76,9 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
       case MetamodelPackage.DOMAINMODEL: return createDomainmodel();
       case MetamodelPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case MetamodelPackage.TYPE: return createType();
+      case MetamodelPackage.FUNCTION_TYPE: return createFunctionType();
       case MetamodelPackage.DATATYPE: return createDatatype();
+      case MetamodelPackage.RESTRICTION: return createRestriction();
       case MetamodelPackage.MEMBER: return createMember();
       case MetamodelPackage.OBJECT: return createObject();
       case MetamodelPackage.FUNCTION: return createFunction();
@@ -121,10 +125,32 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
    * <!-- end-user-doc -->
    * @generated
    */
+  public FunctionType createFunctionType()
+  {
+    FunctionTypeImpl functionType = new FunctionTypeImpl();
+    return functionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Datatype createDatatype()
   {
     DatatypeImpl datatype = new DatatypeImpl();
     return datatype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Restriction createRestriction()
+  {
+    RestrictionImpl restriction = new RestrictionImpl();
+    return restriction;
   }
 
   /**

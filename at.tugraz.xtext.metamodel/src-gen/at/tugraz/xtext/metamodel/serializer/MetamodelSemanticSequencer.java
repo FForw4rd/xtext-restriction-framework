@@ -6,8 +6,10 @@ package at.tugraz.xtext.metamodel.serializer;
 import at.tugraz.xtext.metamodel.metamodel.Datatype;
 import at.tugraz.xtext.metamodel.metamodel.Domainmodel;
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.Member;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
+import at.tugraz.xtext.metamodel.metamodel.Restriction;
 import at.tugraz.xtext.metamodel.services.MetamodelGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -41,11 +43,17 @@ public class MetamodelSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MetamodelPackage.FUNCTION:
 				sequence_Function(context, (Function) semanticObject); 
 				return; 
+			case MetamodelPackage.FUNCTION_TYPE:
+				sequence_FunctionType(context, (FunctionType) semanticObject); 
+				return; 
 			case MetamodelPackage.MEMBER:
 				sequence_Member(context, (Member) semanticObject); 
 				return; 
 			case MetamodelPackage.OBJECT:
 				sequence_Object(context, (at.tugraz.xtext.metamodel.metamodel.Object) semanticObject); 
+				return; 
+			case MetamodelPackage.RESTRICTION:
+				sequence_Restriction(context, (Restriction) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -53,17 +61,10 @@ public class MetamodelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID (type=STRING defaultValue=STRING? restrictions+=Restriction*)?)
 	 */
 	protected void sequence_Datatype(EObject context, Datatype semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MetamodelPackage.Literals.ABSTRACT_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MetamodelPackage.Literals.ABSTRACT_ELEMENT__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDatatypeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -78,13 +79,22 @@ public class MetamodelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     (repeat?='repeat'? optional?='optional'? Type=[Type|ID])
+	 */
+	protected void sequence_FunctionType(EObject context, FunctionType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         superType=[Object|ID]? 
 	 *         identifier=INT 
 	 *         issecure?='issecure'? 
-	 *         inputs+=[Type|ID]* 
-	 *         outpust+=[Type|ID]*
+	 *         inputs+=FunctionType* 
+	 *         outpust+=FunctionType*
 	 *     )
 	 */
 	protected void sequence_Function(EObject context, Function semanticObject) {
@@ -113,9 +123,18 @@ public class MetamodelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID superType=[Object|ID]? members+=Member* issecure?='issecure'?)
+	 *     (name=ID superType=[Object|ID]? (members+=Member restrictions+=Restriction?)* issecure?='issecure'?)
 	 */
 	protected void sequence_Object(EObject context, at.tugraz.xtext.metamodel.metamodel.Object semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((stringrestriction?='stringrestriction' maxlength=INT? minlength=INT) | (valuerestriction?='valuerestricion' maxvalue=INT? minvalue=INT))
+	 */
+	protected void sequence_Restriction(EObject context, Restriction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

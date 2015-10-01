@@ -6,8 +6,10 @@ import at.tugraz.xtext.metamodel.metamodel.AbstractElement;
 import at.tugraz.xtext.metamodel.metamodel.Datatype;
 import at.tugraz.xtext.metamodel.metamodel.Domainmodel;
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.Member;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
+import at.tugraz.xtext.metamodel.metamodel.Restriction;
 import at.tugraz.xtext.metamodel.metamodel.Type;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -96,9 +98,19 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseFunctionType(FunctionType object)
+      {
+        return createFunctionTypeAdapter();
+      }
+      @Override
       public Adapter caseDatatype(Datatype object)
       {
         return createDatatypeAdapter();
+      }
+      @Override
+      public Adapter caseRestriction(Restriction object)
+      {
+        return createRestrictionAdapter();
       }
       @Override
       public Adapter caseMember(Member object)
@@ -183,6 +195,21 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.tugraz.xtext.metamodel.metamodel.FunctionType <em>Function Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.tugraz.xtext.metamodel.metamodel.FunctionType
+   * @generated
+   */
+  public Adapter createFunctionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.tugraz.xtext.metamodel.metamodel.Datatype <em>Datatype</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -193,6 +220,21 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDatatypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.tugraz.xtext.metamodel.metamodel.Restriction <em>Restriction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.tugraz.xtext.metamodel.metamodel.Restriction
+   * @generated
+   */
+  public Adapter createRestrictionAdapter()
   {
     return null;
   }

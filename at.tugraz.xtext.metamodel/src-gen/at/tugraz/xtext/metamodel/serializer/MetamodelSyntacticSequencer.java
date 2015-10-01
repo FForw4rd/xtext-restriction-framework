@@ -55,9 +55,9 @@ public class MetamodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'gets'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     identifier=INT (ambiguity) 'returns' outpust+=[Type|ID]
+	 *     identifier=INT (ambiguity) 'returns' outpust+=FunctionType
 	 *     identifier=INT (ambiguity) 'returns'? '}' (rule end)
-	 *     issecure?='issecure' (ambiguity) 'returns' outpust+=[Type|ID]
+	 *     issecure?='issecure' (ambiguity) 'returns' outpust+=FunctionType
 	 *     issecure?='issecure' (ambiguity) 'returns'? '}' (rule end)
 	 */
 	protected void emit_Function_GetsKeyword_7_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -70,7 +70,7 @@ public class MetamodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     identifier=INT 'gets'? (ambiguity) '}' (rule end)
-	 *     inputs+=[Type|ID] (ambiguity) '}' (rule end)
+	 *     inputs+=FunctionType (ambiguity) '}' (rule end)
 	 *     issecure?='issecure' 'gets'? (ambiguity) '}' (rule end)
 	 */
 	protected void emit_Function_ReturnsKeyword_8_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

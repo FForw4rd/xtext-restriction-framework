@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: metamodel;singleton:=true
+Export-Package: tugraz.at.model,tugraz.at.model.impl,tugraz.at.model.p
+ arameter,tugraz.at.model.parameter.impl,tugraz.at.model.parameter.uti
+ l,tugraz.at.model.util
+Bundle-Name: %pluginName
+Bundle-Version: 0.0.1.201509082008
+Bundle-ClassPath: .,lib/bli-0.0.1-SNAPSHOT.jar
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime;resolution:=optional;x-instal
+ lation:=greedy,org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+

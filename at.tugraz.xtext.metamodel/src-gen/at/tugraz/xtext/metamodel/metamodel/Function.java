@@ -105,35 +105,35 @@ public interface Function extends AbstractElement
   void setIssecure(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Inputs</b></em>' reference list.
-   * The list contents are of type {@link at.tugraz.xtext.metamodel.metamodel.Type}.
+   * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+   * The list contents are of type {@link at.tugraz.xtext.metamodel.metamodel.FunctionType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Inputs</em>' reference list isn't clear,
+   * If the meaning of the '<em>Inputs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Inputs</em>' reference list.
+   * @return the value of the '<em>Inputs</em>' containment reference list.
    * @see at.tugraz.xtext.metamodel.metamodel.MetamodelPackage#getFunction_Inputs()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  EList<Type> getInputs();
+  EList<FunctionType> getInputs();
 
   /**
-   * Returns the value of the '<em><b>Outpust</b></em>' reference list.
-   * The list contents are of type {@link at.tugraz.xtext.metamodel.metamodel.Type}.
+   * Returns the value of the '<em><b>Outpust</b></em>' containment reference list.
+   * The list contents are of type {@link at.tugraz.xtext.metamodel.metamodel.FunctionType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Outpust</em>' reference list isn't clear,
+   * If the meaning of the '<em>Outpust</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Outpust</em>' reference list.
+   * @return the value of the '<em>Outpust</em>' containment reference list.
    * @see at.tugraz.xtext.metamodel.metamodel.MetamodelPackage#getFunction_Outpust()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  EList<Type> getOutpust();
+  EList<FunctionType> getOutpust();
 
 } // Function

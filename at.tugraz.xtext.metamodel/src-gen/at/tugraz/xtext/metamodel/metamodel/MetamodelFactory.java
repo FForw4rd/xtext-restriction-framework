@@ -50,6 +50,15 @@ public interface MetamodelFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Type</em>'.
+   * @generated
+   */
+  FunctionType createFunctionType();
+
+  /**
    * Returns a new object of class '<em>Datatype</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -57,6 +66,15 @@ public interface MetamodelFactory extends EFactory
    * @generated
    */
   Datatype createDatatype();
+
+  /**
+   * Returns a new object of class '<em>Restriction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Restriction</em>'.
+   * @generated
+   */
+  Restriction createRestriction();
 
   /**
    * Returns a new object of class '<em>Member</em>'.

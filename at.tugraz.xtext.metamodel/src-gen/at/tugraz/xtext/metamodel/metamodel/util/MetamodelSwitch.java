@@ -6,8 +6,10 @@ import at.tugraz.xtext.metamodel.metamodel.AbstractElement;
 import at.tugraz.xtext.metamodel.metamodel.Datatype;
 import at.tugraz.xtext.metamodel.metamodel.Domainmodel;
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.Member;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
+import at.tugraz.xtext.metamodel.metamodel.Restriction;
 import at.tugraz.xtext.metamodel.metamodel.Type;
 
 import org.eclipse.emf.ecore.EObject;
@@ -100,12 +102,26 @@ public class MetamodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MetamodelPackage.FUNCTION_TYPE:
+      {
+        FunctionType functionType = (FunctionType)theEObject;
+        T result = caseFunctionType(functionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MetamodelPackage.DATATYPE:
       {
         Datatype datatype = (Datatype)theEObject;
         T result = caseDatatype(datatype);
         if (result == null) result = caseType(datatype);
         if (result == null) result = caseAbstractElement(datatype);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MetamodelPackage.RESTRICTION:
+      {
+        Restriction restriction = (Restriction)theEObject;
+        T result = caseRestriction(restriction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -186,6 +202,22 @@ public class MetamodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionType(FunctionType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Datatype</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -197,6 +229,22 @@ public class MetamodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDatatype(Datatype object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Restriction</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Restriction</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRestriction(Restriction object)
   {
     return null;
   }

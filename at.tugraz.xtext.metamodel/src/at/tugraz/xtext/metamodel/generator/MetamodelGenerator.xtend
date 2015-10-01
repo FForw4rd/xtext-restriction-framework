@@ -6,14 +6,13 @@ package at.tugraz.xtext.metamodel.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-//import org.example.domainmodel.domainmodel.Entity
-//import org.example.domainmodel.domainmodel.Feature
-//import at.tugraz.xtext.metamodel.metamodel.Function
 import at.tugraz.xtext.metamodel.metamodel.Object
 import org.eclipse.xtext.naming.IQualifiedNameProvider
  
 import com.google.inject.Inject
 import at.tugraz.xtext.metamodel.metamodel.Member
+import at.tugraz.xtext.metamodel.metamodel.Datatype
+import at.tugraz.xtext.metamodel.metamodel.Restriction
 
 class MetamodelGenerator implements IGenerator {
  
@@ -24,6 +23,11 @@ class MetamodelGenerator implements IGenerator {
       fsa.generateFile(
         e.fullyQualifiedName.toString("/") + ".java",
         e.compile)
+    }
+    for(currDatatype: resource.allContents.toIterable.filter(Datatype)) {
+      fsa.generateFile(
+        currDatatype.fullyQualifiedName.toString("/") + ".java",
+        currDatatype.compile)
     }
   }
  
@@ -60,5 +64,50 @@ class MetamodelGenerator implements IGenerator {
     public void set«f.name.toFirstUpper»(«f.type.fullyQualifiedName» «f.name») {
       this.«f.name» = «f.name»;
     }
+  '''
+  
+  def compile(Datatype d) '''
+  	public class «d.name» {
+  	  private «d.type» «d.name» «IF d.defaultValue !=null»=«d.defaultValue» «ENDIF»
+  	
+  	  public «d.type» get«d.name.toFirstUpper»() {
+  	    return «d.name»
+  	  }
+  	  public void set«d.name.toFirstUpper»(«d.type» «d.name»){
+  	  «IF d.restrictions != null»
+  	    «FOR r:d.restrictions»
+  	  	  «r.generate(d)»
+«««  	  	  «IF(r.isStringrestriction)»
+«««  	  	    «IF r.maxlength != 0»
+«««  	  	      d.name >= «r.maxlength») return;
+«««  	  	    «ENDIF»
+«««  	  	    «IF»
+«««  	  	     
+«««  	  	    «ENDIF»
+«««  	  	    «ENDIF»
+  	      «ENDFOR»
+  		«ENDIF»
+  	    this.«d.name» = «d.name»;
+  	  }
+  	}
+  '''
+  
+  def generate(Restriction r, Datatype d) '''
+  	«IF r.isStringrestriction»
+  	  «IF r.minlength != 0»
+  	  if(«d.name».getlength<«r.minlength») return;
+  	  «ENDIF»
+  	  «IF r.maxlength != 0»
+  	  if(«d.name».getlength>«r.maxlength») return;
+  	  «ENDIF»
+  	«ENDIF»
+  	«IF r.isValuerestriction»
+  	  «IF r.minvalue != 0»
+  	  if(«d.name»<«r.minvalue») return;
+  	  «ENDIF»
+  	  «IF r.maxvalue != 0»
+  	  if(«d.name»<«r.maxvalue») return;
+  	  «ENDIF»
+  	«ENDIF»
   '''
 }

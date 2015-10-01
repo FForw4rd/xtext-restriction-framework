@@ -12,9 +12,24 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalMetamodelLexer extends Lexer {
-    public static final int T__19=19;
     public static final int RULE_ID=4;
-    public static final int RULE_STRING=6;
+    public static final int T__29=29;
+    public static final int T__28=28;
+    public static final int T__27=27;
+    public static final int T__26=26;
+    public static final int T__25=25;
+    public static final int T__24=24;
+    public static final int T__23=23;
+    public static final int T__22=22;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int T__21=21;
+    public static final int T__20=20;
+    public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__19=19;
+    public static final int T__30=30;
+    public static final int RULE_STRING=5;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -23,14 +38,8 @@ public class InternalMetamodelLexer extends Lexer {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -50,10 +59,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__11;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:11:7: ( 'datatype' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:11:9: 'datatype'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:11:7: ( 'repeat' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:11:9: 'repeat'
             {
-            match("datatype"); 
+            match("repeat"); 
 
 
             }
@@ -71,10 +80,11 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:12:7: ( ':' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:12:9: ':'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:12:7: ( 'optional' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:12:9: 'optional'
             {
-            match(':'); 
+            match("optional"); 
+
 
             }
 
@@ -91,10 +101,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:13:7: ( 'object' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:13:9: 'object'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:13:7: ( 'datatype' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:13:9: 'datatype'
             {
-            match("object"); 
+            match("datatype"); 
 
 
             }
@@ -112,11 +122,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:14:7: ( 'extends' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:14:9: 'extends'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:14:7: ( '{' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:14:9: '{'
             {
-            match("extends"); 
-
+            match('{'); 
 
             }
 
@@ -133,10 +142,11 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:15:7: ( '{' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:15:9: '{'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:15:7: ( 'defaultvalue=' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:15:9: 'defaultvalue='
             {
-            match('{'); 
+            match("defaultvalue="); 
+
 
             }
 
@@ -153,11 +163,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:16:7: ( 'issecure' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:16:9: 'issecure'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:16:7: ( '}' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:16:9: '}'
             {
-            match("issecure"); 
-
+            match('}'); 
 
             }
 
@@ -174,10 +183,11 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:17:7: ( '}' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:17:9: '}'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:17:7: ( 'stringrestriction' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:17:9: 'stringrestriction'
             {
-            match('}'); 
+            match("stringrestriction"); 
+
 
             }
 
@@ -194,10 +204,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:18:7: ( 'function' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:18:9: 'function'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:18:7: ( 'maxlength' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:18:9: 'maxlength'
             {
-            match("function"); 
+            match("maxlength"); 
 
 
             }
@@ -215,10 +225,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:19:7: ( 'id' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:19:9: 'id'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:19:7: ( 'minlength' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:19:9: 'minlength'
             {
-            match("id"); 
+            match("minlength"); 
 
 
             }
@@ -236,10 +246,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:20:7: ( 'gets' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:20:9: 'gets'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:20:7: ( 'valuerestricion' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:20:9: 'valuerestricion'
             {
-            match("gets"); 
+            match("valuerestricion"); 
 
 
             }
@@ -257,10 +267,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:21:7: ( 'returns' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:21:9: 'returns'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:21:7: ( 'maxvalue' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:21:9: 'maxvalue'
             {
-            match("returns"); 
+            match("maxvalue"); 
 
 
             }
@@ -273,15 +283,203 @@ public class InternalMetamodelLexer extends Lexer {
     }
     // $ANTLR end "T__21"
 
+    // $ANTLR start "T__22"
+    public final void mT__22() throws RecognitionException {
+        try {
+            int _type = T__22;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:22:7: ( 'minvalue' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:22:9: 'minvalue'
+            {
+            match("minvalue"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__22"
+
+    // $ANTLR start "T__23"
+    public final void mT__23() throws RecognitionException {
+        try {
+            int _type = T__23;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:23:7: ( ':' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:23:9: ':'
+            {
+            match(':'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__23"
+
+    // $ANTLR start "T__24"
+    public final void mT__24() throws RecognitionException {
+        try {
+            int _type = T__24;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:24:7: ( 'object' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:24:9: 'object'
+            {
+            match("object"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__24"
+
+    // $ANTLR start "T__25"
+    public final void mT__25() throws RecognitionException {
+        try {
+            int _type = T__25;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:25:7: ( 'extends' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:25:9: 'extends'
+            {
+            match("extends"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__25"
+
+    // $ANTLR start "T__26"
+    public final void mT__26() throws RecognitionException {
+        try {
+            int _type = T__26;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:26:7: ( 'issecure' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:26:9: 'issecure'
+            {
+            match("issecure"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__26"
+
+    // $ANTLR start "T__27"
+    public final void mT__27() throws RecognitionException {
+        try {
+            int _type = T__27;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:27:7: ( 'function' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:27:9: 'function'
+            {
+            match("function"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__27"
+
+    // $ANTLR start "T__28"
+    public final void mT__28() throws RecognitionException {
+        try {
+            int _type = T__28;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:28:7: ( 'id' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:28:9: 'id'
+            {
+            match("id"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__28"
+
+    // $ANTLR start "T__29"
+    public final void mT__29() throws RecognitionException {
+        try {
+            int _type = T__29;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:29:7: ( 'gets' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:29:9: 'gets'
+            {
+            match("gets"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__29"
+
+    // $ANTLR start "T__30"
+    public final void mT__30() throws RecognitionException {
+        try {
+            int _type = T__30;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:30:7: ( 'returns' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:30:9: 'returns'
+            {
+            match("returns"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__30"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:524:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:524:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:830:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:830:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:524:11: ( '^' )?
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:830:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -290,7 +488,7 @@ public class InternalMetamodelLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:524:11: '^'
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:830:11: '^'
                     {
                     match('^'); 
 
@@ -308,7 +506,7 @@ public class InternalMetamodelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:524:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:830:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -357,10 +555,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:526:10: ( ( '0' .. '9' )+ )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:526:12: ( '0' .. '9' )+
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:832:10: ( ( '0' .. '9' )+ )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:832:12: ( '0' .. '9' )+
             {
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:526:12: ( '0' .. '9' )+
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:832:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -374,7 +572,7 @@ public class InternalMetamodelLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:526:13: '0' .. '9'
+            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:832:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -406,10 +604,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -427,10 +625,10 @@ public class InternalMetamodelLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -446,7 +644,7 @@ public class InternalMetamodelLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:21: '\\\\' .
+                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -454,7 +652,7 @@ public class InternalMetamodelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -479,10 +677,10 @@ public class InternalMetamodelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -498,7 +696,7 @@ public class InternalMetamodelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:54: '\\\\' .
+                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -506,7 +704,7 @@ public class InternalMetamodelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:528:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:834:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -549,12 +747,12 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:530:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:530:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:836:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:836:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:530:24: ( options {greedy=false; } : . )*
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:836:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -579,7 +777,7 @@ public class InternalMetamodelLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:530:52: .
+            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:836:52: .
             	    {
             	    matchAny(); 
 
@@ -609,12 +807,12 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -627,7 +825,7 @@ public class InternalMetamodelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -647,7 +845,7 @@ public class InternalMetamodelLexer extends Lexer {
                 }
             } while (true);
 
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:40: ( ( '\\r' )? '\\n' )?
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -656,9 +854,9 @@ public class InternalMetamodelLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:41: ( '\\r' )? '\\n'
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:41: ( '\\r' )? '\\n'
                     {
-                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:41: ( '\\r' )?
+                    // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -667,7 +865,7 @@ public class InternalMetamodelLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:532:41: '\\r'
+                            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:838:41: '\\r'
                             {
                             match('\r'); 
 
@@ -699,10 +897,10 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:534:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:534:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:840:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:840:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:534:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:840:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -756,8 +954,8 @@ public class InternalMetamodelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:536:16: ( . )
-            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:536:18: .
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:842:16: ( . )
+            // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:842:18: .
             {
             matchAny(); 
 
@@ -772,8 +970,8 @@ public class InternalMetamodelLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=18;
+        // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=27;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -854,49 +1052,112 @@ public class InternalMetamodelLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:76: RULE_ID
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:76: T__22
+                {
+                mT__22(); 
+
+                }
+                break;
+            case 13 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:82: T__23
+                {
+                mT__23(); 
+
+                }
+                break;
+            case 14 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:88: T__24
+                {
+                mT__24(); 
+
+                }
+                break;
+            case 15 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:94: T__25
+                {
+                mT__25(); 
+
+                }
+                break;
+            case 16 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:100: T__26
+                {
+                mT__26(); 
+
+                }
+                break;
+            case 17 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:106: T__27
+                {
+                mT__27(); 
+
+                }
+                break;
+            case 18 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:112: T__28
+                {
+                mT__28(); 
+
+                }
+                break;
+            case 19 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:118: T__29
+                {
+                mT__29(); 
+
+                }
+                break;
+            case 20 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:124: T__30
+                {
+                mT__30(); 
+
+                }
+                break;
+            case 21 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:130: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 13 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:84: RULE_INT
+            case 22 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:138: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 14 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:93: RULE_STRING
+            case 23 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:147: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 15 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:105: RULE_ML_COMMENT
+            case 24 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:159: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:121: RULE_SL_COMMENT
+            case 25 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:175: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 17 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:137: RULE_WS
+            case 26 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:191: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 18 :
-                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:145: RULE_ANY_OTHER
+            case 27 :
+                // ../at.tugraz.xtext.metamodel/src-gen/at/tugraz/xtext/metamodel/parser/antlr/internal/InternalMetamodel.g:1:199: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -910,95 +1171,185 @@ public class InternalMetamodelLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\24\1\uffff\2\24\1\uffff\1\24\1\uffff\3\24\1\22\2\uffff\3\22\2\uffff\1\24\2\uffff\2\24\1\uffff\1\24\1\50\1\uffff\3\24\5\uffff\4\24\1\uffff\10\24\1\70\6\24\1\uffff\2\24\1\101\5\24\1\uffff\1\107\2\24\1\112\1\113\1\uffff\1\114\1\115\4\uffff";
+        "\1\uffff\3\27\2\uffff\3\27\1\uffff\4\27\1\25\2\uffff\3\25\2\uffff\1\27\1\uffff\4\27\2\uffff\4\27\1\uffff\2\27\1\71\2\27\5\uffff\14\27\1\uffff\21\27\1\133\17\27\1\uffff\1\153\2\27\1\156\13\27\1\uffff\1\172\1\27\1\uffff\10\27\1\u0084\2\27\1\uffff\1\u0087\1\u0088\3\27\1\u008c\1\27\1\u008e\1\27\1\uffff\1\u0090\1\u0091\2\uffff\2\27\1\u0094\1\uffff\1\u0095\1\uffff\1\27\2\uffff\2\27\2\uffff\7\27\1\uffff\5\27\1\u00a5\1\27\1\uffff\1\u00a7\1\uffff";
     static final String DFA12_eofS =
-        "\116\uffff";
+        "\u00a8\uffff";
     static final String DFA12_minS =
-        "\1\0\1\141\1\uffff\1\142\1\170\1\uffff\1\144\1\uffff\1\165\2\145\1\101\2\uffff\2\0\1\52\2\uffff\1\164\2\uffff\1\152\1\164\1\uffff\1\163\1\60\1\uffff\1\156\2\164\5\uffff\1\141\3\145\1\uffff\1\143\1\163\1\165\1\164\1\143\1\156\1\143\1\164\1\60\1\162\1\171\1\164\1\144\1\165\1\151\1\uffff\1\156\1\160\1\60\1\163\1\162\1\157\1\163\1\145\1\uffff\1\60\1\145\1\156\2\60\1\uffff\2\60\4\uffff";
+        "\1\0\1\145\1\142\1\141\2\uffff\1\164\2\141\1\uffff\1\170\1\144\1\165\1\145\1\101\2\uffff\2\0\1\52\2\uffff\1\160\1\uffff\1\164\1\152\1\164\1\146\2\uffff\1\162\1\170\1\156\1\154\1\uffff\1\164\1\163\1\60\1\156\1\164\5\uffff\1\145\1\165\1\151\1\145\2\141\1\151\2\154\1\165\2\145\1\uffff\1\143\1\163\1\141\1\162\1\157\1\143\1\164\1\165\1\156\1\145\1\141\1\145\1\141\1\145\1\156\1\143\1\164\1\60\1\164\2\156\1\164\1\171\1\154\1\147\1\156\1\154\1\156\1\154\1\162\1\144\1\165\1\151\1\uffff\1\60\1\163\1\141\1\60\1\160\1\164\1\162\1\147\1\165\1\147\1\165\1\145\1\163\1\162\1\157\1\uffff\1\60\1\154\1\uffff\1\145\1\166\1\145\1\164\1\145\1\164\1\145\1\163\1\60\1\145\1\156\1\uffff\2\60\1\141\1\163\1\150\1\60\1\150\1\60\1\164\1\uffff\2\60\2\uffff\1\154\1\164\1\60\1\uffff\1\60\1\uffff\1\162\2\uffff\1\165\1\162\2\uffff\1\151\1\145\1\151\1\143\1\75\1\143\1\151\1\uffff\1\164\1\157\1\151\1\156\1\157\1\60\1\156\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\141\1\uffff\1\142\1\170\1\uffff\1\163\1\uffff\1\165\2\145\1\172\2\uffff\2\uffff\1\57\2\uffff\1\164\2\uffff\1\152\1\164\1\uffff\1\163\1\172\1\uffff\1\156\2\164\5\uffff\1\141\3\145\1\uffff\1\143\1\163\1\165\1\164\1\143\1\156\1\143\1\164\1\172\1\162\1\171\1\164\1\144\1\165\1\151\1\uffff\1\156\1\160\1\172\1\163\1\162\1\157\1\163\1\145\1\uffff\1\172\1\145\1\156\2\172\1\uffff\2\172\4\uffff";
+        "\1\uffff\1\145\1\160\1\145\2\uffff\1\164\1\151\1\141\1\uffff\1\170\1\163\1\165\1\145\1\172\2\uffff\2\uffff\1\57\2\uffff\1\164\1\uffff\1\164\1\152\1\164\1\146\2\uffff\1\162\1\170\1\156\1\154\1\uffff\1\164\1\163\1\172\1\156\1\164\5\uffff\1\145\1\165\1\151\1\145\2\141\1\151\2\166\1\165\2\145\1\uffff\1\143\1\163\1\141\1\162\1\157\1\143\1\164\1\165\1\156\1\145\1\141\1\145\1\141\1\145\1\156\1\143\1\164\1\172\1\164\2\156\1\164\1\171\1\154\1\147\1\156\1\154\1\156\1\154\1\162\1\144\1\165\1\151\1\uffff\1\172\1\163\1\141\1\172\1\160\1\164\1\162\1\147\1\165\1\147\1\165\1\145\1\163\1\162\1\157\1\uffff\1\172\1\154\1\uffff\1\145\1\166\1\145\1\164\1\145\1\164\1\145\1\163\1\172\1\145\1\156\1\uffff\2\172\1\141\1\163\1\150\1\172\1\150\1\172\1\164\1\uffff\2\172\2\uffff\1\154\1\164\1\172\1\uffff\1\172\1\uffff\1\162\2\uffff\1\165\1\162\2\uffff\1\151\1\145\1\151\1\143\1\75\1\143\1\151\1\uffff\1\164\1\157\1\151\1\156\1\157\1\172\1\156\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\2\uffff\1\5\1\uffff\1\7\4\uffff\1\14\1\15\3\uffff\1\21\1\22\1\uffff\1\14\1\2\2\uffff\1\5\2\uffff\1\7\3\uffff\1\15\1\16\1\17\1\20\1\21\4\uffff\1\11\17\uffff\1\12\10\uffff\1\3\5\uffff\1\4\2\uffff\1\13\1\1\1\6\1\10";
+        "\4\uffff\1\4\1\6\3\uffff\1\15\5\uffff\1\25\1\26\3\uffff\1\32\1\33\1\uffff\1\25\4\uffff\1\4\1\6\4\uffff\1\15\5\uffff\1\26\1\27\1\30\1\31\1\32\14\uffff\1\22\41\uffff\1\23\17\uffff\1\1\2\uffff\1\16\13\uffff\1\24\11\uffff\1\17\2\uffff\1\2\1\3\3\uffff\1\13\1\uffff\1\14\1\uffff\1\20\1\21\2\uffff\1\10\1\11\7\uffff\1\5\7\uffff\1\12\1\uffff\1\7";
     static final String DFA12_specialS =
-        "\1\1\15\uffff\1\2\1\0\76\uffff}>";
+        "\1\1\20\uffff\1\0\1\2\u0095\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\22\2\21\2\22\1\21\22\22\1\21\1\22\1\16\4\22\1\17\7\22\1\20\12\15\1\2\6\22\32\14\3\22\1\13\1\14\1\22\3\14\1\1\1\4\1\10\1\11\1\14\1\6\5\14\1\3\2\14\1\12\10\14\1\5\1\22\1\7\uff82\22",
-            "\1\23",
-            "",
+            "\11\25\2\24\2\25\1\24\22\25\1\24\1\25\1\21\4\25\1\22\7\25\1\23\12\20\1\11\6\25\32\17\3\25\1\16\1\17\1\25\3\17\1\3\1\12\1\14\1\15\1\17\1\13\3\17\1\7\1\17\1\2\2\17\1\1\1\6\2\17\1\10\4\17\1\4\1\25\1\5\uff82\25",
             "\1\26",
-            "\1\27",
+            "\1\31\15\uffff\1\30",
+            "\1\32\3\uffff\1\33",
             "",
-            "\1\32\16\uffff\1\31",
             "",
-            "\1\34",
-            "\1\35",
             "\1\36",
-            "\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\37\7\uffff\1\40",
+            "\1\41",
             "",
-            "",
-            "\0\40",
-            "\0\40",
-            "\1\41\4\uffff\1\42",
-            "",
-            "",
-            "\1\44",
-            "",
-            "",
-            "\1\45",
+            "\1\43",
+            "\1\45\16\uffff\1\44",
             "\1\46",
-            "",
             "\1\47",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
-            "",
-            "\1\51",
-            "\1\52",
-            "\1\53",
+            "\32\27\4\uffff\1\27\1\uffff\32\27",
             "",
             "",
+            "\0\51",
+            "\0\51",
+            "\1\52\4\uffff\1\53",
             "",
             "",
+            "\1\55\3\uffff\1\56",
             "",
-            "\1\54",
-            "\1\55",
-            "\1\56",
             "\1\57",
-            "",
             "\1\60",
             "\1\61",
             "\1\62",
+            "",
+            "",
             "\1\63",
             "\1\64",
             "\1\65",
             "\1\66",
+            "",
             "\1\67",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
-            "\1\71",
+            "\1\70",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "\1\72",
             "\1\73",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\74",
             "\1\75",
             "\1\76",
-            "",
             "\1\77",
             "\1\100",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\101",
             "\1\102",
-            "\1\103",
-            "\1\104",
-            "\1\105",
-            "\1\106",
-            "",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\103\11\uffff\1\104",
+            "\1\105\11\uffff\1\106",
+            "\1\107",
             "\1\110",
             "\1\111",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
             "",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
-            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\112",
+            "\1\113",
+            "\1\114",
+            "\1\115",
+            "\1\116",
+            "\1\117",
+            "\1\120",
+            "\1\121",
+            "\1\122",
+            "\1\123",
+            "\1\124",
+            "\1\125",
+            "\1\126",
+            "\1\127",
+            "\1\130",
+            "\1\131",
+            "\1\132",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\134",
+            "\1\135",
+            "\1\136",
+            "\1\137",
+            "\1\140",
+            "\1\141",
+            "\1\142",
+            "\1\143",
+            "\1\144",
+            "\1\145",
+            "\1\146",
+            "\1\147",
+            "\1\150",
+            "\1\151",
+            "\1\152",
+            "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\154",
+            "\1\155",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\157",
+            "\1\160",
+            "\1\161",
+            "\1\162",
+            "\1\163",
+            "\1\164",
+            "\1\165",
+            "\1\166",
+            "\1\167",
+            "\1\170",
+            "\1\171",
+            "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\173",
+            "",
+            "\1\174",
+            "\1\175",
+            "\1\176",
+            "\1\177",
+            "\1\u0080",
+            "\1\u0081",
+            "\1\u0082",
+            "\1\u0083",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\u0085",
+            "\1\u0086",
+            "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\u0089",
+            "\1\u008a",
+            "\1\u008b",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\u008d",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\u008f",
+            "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "",
             "",
+            "\1\u0092",
+            "\1\u0093",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "",
+            "\1\u0096",
+            "",
+            "",
+            "\1\u0097",
+            "\1\u0098",
+            "",
+            "",
+            "\1\u0099",
+            "\1\u009a",
+            "\1\u009b",
+            "\1\u009c",
+            "\1\u009d",
+            "\1\u009e",
+            "\1\u009f",
+            "",
+            "\1\u00a0",
+            "\1\u00a1",
+            "\1\u00a2",
+            "\1\u00a3",
+            "\1\u00a4",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\u00a6",
+            "",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             ""
     };
 
@@ -1032,19 +1383,19 @@ public class InternalMetamodelLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_15 = input.LA(1);
+                        int LA12_17 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_15>='\u0000' && LA12_15<='\uFFFF')) ) {s = 32;}
+                        if ( ((LA12_17>='\u0000' && LA12_17<='\uFFFF')) ) {s = 41;}
 
-                        else s = 18;
+                        else s = 21;
 
                         if ( s>=0 ) return s;
                         break;
@@ -1052,51 +1403,57 @@ public class InternalMetamodelLexer extends Lexer {
                         int LA12_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA12_0=='d') ) {s = 1;}
+                        if ( (LA12_0=='r') ) {s = 1;}
 
-                        else if ( (LA12_0==':') ) {s = 2;}
+                        else if ( (LA12_0=='o') ) {s = 2;}
 
-                        else if ( (LA12_0=='o') ) {s = 3;}
+                        else if ( (LA12_0=='d') ) {s = 3;}
 
-                        else if ( (LA12_0=='e') ) {s = 4;}
+                        else if ( (LA12_0=='{') ) {s = 4;}
 
-                        else if ( (LA12_0=='{') ) {s = 5;}
+                        else if ( (LA12_0=='}') ) {s = 5;}
 
-                        else if ( (LA12_0=='i') ) {s = 6;}
+                        else if ( (LA12_0=='s') ) {s = 6;}
 
-                        else if ( (LA12_0=='}') ) {s = 7;}
+                        else if ( (LA12_0=='m') ) {s = 7;}
 
-                        else if ( (LA12_0=='f') ) {s = 8;}
+                        else if ( (LA12_0=='v') ) {s = 8;}
 
-                        else if ( (LA12_0=='g') ) {s = 9;}
+                        else if ( (LA12_0==':') ) {s = 9;}
 
-                        else if ( (LA12_0=='r') ) {s = 10;}
+                        else if ( (LA12_0=='e') ) {s = 10;}
 
-                        else if ( (LA12_0=='^') ) {s = 11;}
+                        else if ( (LA12_0=='i') ) {s = 11;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='c')||LA12_0=='h'||(LA12_0>='j' && LA12_0<='n')||(LA12_0>='p' && LA12_0<='q')||(LA12_0>='s' && LA12_0<='z')) ) {s = 12;}
+                        else if ( (LA12_0=='f') ) {s = 12;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 13;}
+                        else if ( (LA12_0=='g') ) {s = 13;}
 
-                        else if ( (LA12_0=='\"') ) {s = 14;}
+                        else if ( (LA12_0=='^') ) {s = 14;}
 
-                        else if ( (LA12_0=='\'') ) {s = 15;}
+                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='c')||LA12_0=='h'||(LA12_0>='j' && LA12_0<='l')||LA12_0=='n'||(LA12_0>='p' && LA12_0<='q')||(LA12_0>='t' && LA12_0<='u')||(LA12_0>='w' && LA12_0<='z')) ) {s = 15;}
 
-                        else if ( (LA12_0=='/') ) {s = 16;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 16;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 17;}
+                        else if ( (LA12_0=='\"') ) {s = 17;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='.')||(LA12_0>=';' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 18;}
+                        else if ( (LA12_0=='\'') ) {s = 18;}
+
+                        else if ( (LA12_0=='/') ) {s = 19;}
+
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 20;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='.')||(LA12_0>=';' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 21;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_14 = input.LA(1);
+                        int LA12_18 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_14>='\u0000' && LA12_14<='\uFFFF')) ) {s = 32;}
+                        if ( ((LA12_18>='\u0000' && LA12_18<='\uFFFF')) ) {s = 41;}
 
-                        else s = 18;
+                        else s = 21;
 
                         if ( s>=0 ) return s;
                         break;

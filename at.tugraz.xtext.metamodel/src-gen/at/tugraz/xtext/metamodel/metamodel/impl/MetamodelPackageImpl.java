@@ -6,9 +6,11 @@ import at.tugraz.xtext.metamodel.metamodel.AbstractElement;
 import at.tugraz.xtext.metamodel.metamodel.Datatype;
 import at.tugraz.xtext.metamodel.metamodel.Domainmodel;
 import at.tugraz.xtext.metamodel.metamodel.Function;
+import at.tugraz.xtext.metamodel.metamodel.FunctionType;
 import at.tugraz.xtext.metamodel.metamodel.Member;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelFactory;
 import at.tugraz.xtext.metamodel.metamodel.MetamodelPackage;
+import at.tugraz.xtext.metamodel.metamodel.Restriction;
 import at.tugraz.xtext.metamodel.metamodel.Type;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -52,7 +54,21 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass functionTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass datatypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass restrictionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,9 +209,149 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getType_Restrictions()
+  {
+    return (EReference)typeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionType()
+  {
+    return functionTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionType_Repeat()
+  {
+    return (EAttribute)functionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionType_Optional()
+  {
+    return (EAttribute)functionTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionType_Type()
+  {
+    return (EReference)functionTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDatatype()
   {
     return datatypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDatatype_Type()
+  {
+    return (EAttribute)datatypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDatatype_DefaultValue()
+  {
+    return (EAttribute)datatypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRestriction()
+  {
+    return restrictionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Stringrestriction()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Maxlength()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Minlength()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Valuerestriction()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Maxvalue()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRestriction_Minvalue()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -365,8 +521,24 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
     createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__NAME);
 
     typeEClass = createEClass(TYPE);
+    createEReference(typeEClass, TYPE__RESTRICTIONS);
+
+    functionTypeEClass = createEClass(FUNCTION_TYPE);
+    createEAttribute(functionTypeEClass, FUNCTION_TYPE__REPEAT);
+    createEAttribute(functionTypeEClass, FUNCTION_TYPE__OPTIONAL);
+    createEReference(functionTypeEClass, FUNCTION_TYPE__TYPE);
 
     datatypeEClass = createEClass(DATATYPE);
+    createEAttribute(datatypeEClass, DATATYPE__TYPE);
+    createEAttribute(datatypeEClass, DATATYPE__DEFAULT_VALUE);
+
+    restrictionEClass = createEClass(RESTRICTION);
+    createEAttribute(restrictionEClass, RESTRICTION__STRINGRESTRICTION);
+    createEAttribute(restrictionEClass, RESTRICTION__MAXLENGTH);
+    createEAttribute(restrictionEClass, RESTRICTION__MINLENGTH);
+    createEAttribute(restrictionEClass, RESTRICTION__VALUERESTRICTION);
+    createEAttribute(restrictionEClass, RESTRICTION__MAXVALUE);
+    createEAttribute(restrictionEClass, RESTRICTION__MINVALUE);
 
     memberEClass = createEClass(MEMBER);
     createEAttribute(memberEClass, MEMBER__NAME);
@@ -427,8 +599,24 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
     initEAttribute(getAbstractElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getType_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionTypeEClass, FunctionType.class, "FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionType_Repeat(), ecorePackage.getEBoolean(), "repeat", null, 0, 1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunctionType_Optional(), ecorePackage.getEBoolean(), "optional", null, 0, 1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionType_Type(), this.getType(), null, "Type", null, 0, 1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(datatypeEClass, Datatype.class, "Datatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDatatype_Type(), ecorePackage.getEString(), "type", null, 0, 1, Datatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDatatype_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Datatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRestriction_Stringrestriction(), ecorePackage.getEBoolean(), "stringrestriction", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Maxlength(), ecorePackage.getEInt(), "maxlength", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Minlength(), ecorePackage.getEInt(), "minlength", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Valuerestriction(), ecorePackage.getEBoolean(), "valuerestriction", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Maxvalue(), ecorePackage.getEInt(), "maxvalue", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Minvalue(), ecorePackage.getEInt(), "minvalue", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -443,8 +631,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
     initEReference(getFunction_SuperType(), this.getObject(), null, "superType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunction_Identifier(), ecorePackage.getEInt(), "identifier", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunction_Issecure(), ecorePackage.getEBoolean(), "issecure", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Inputs(), this.getType(), null, "inputs", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Outpust(), this.getType(), null, "outpust", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Inputs(), this.getFunctionType(), null, "inputs", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Outpust(), this.getFunctionType(), null, "outpust", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

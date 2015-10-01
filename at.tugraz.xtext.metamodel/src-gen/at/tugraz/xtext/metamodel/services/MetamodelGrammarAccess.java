@@ -23,7 +23,10 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
 		
-		//Domainmodel:
+		/// * TODOS
+		// * function generator
+		// * unique function IDs
+		// * / Domainmodel:
 		//	elements+=AbstractElement*;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -77,18 +80,72 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getObjectParserRuleCall_1() { return cObjectParserRuleCall_1; }
 	}
 
+	public class FunctionTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRepeatAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cRepeatRepeatKeyword_0_0 = (Keyword)cRepeatAssignment_0.eContents().get(0);
+		private final Assignment cOptionalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cOptionalOptionalKeyword_1_0 = (Keyword)cOptionalAssignment_1.eContents().get(0);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTypeTypeCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeTypeIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeTypeCrossReference_2_0.eContents().get(1);
+		
+		////TODO in generator einbauen
+		//FunctionType:
+		//	repeat?="repeat"? optional?="optional"? Type=[Type];
+		@Override public ParserRule getRule() { return rule; }
+
+		//repeat?="repeat"? optional?="optional"? Type=[Type]
+		public Group getGroup() { return cGroup; }
+
+		//repeat?="repeat"?
+		public Assignment getRepeatAssignment_0() { return cRepeatAssignment_0; }
+
+		//"repeat"
+		public Keyword getRepeatRepeatKeyword_0_0() { return cRepeatRepeatKeyword_0_0; }
+
+		//optional?="optional"?
+		public Assignment getOptionalAssignment_1() { return cOptionalAssignment_1; }
+
+		//"optional"
+		public Keyword getOptionalOptionalKeyword_1_0() { return cOptionalOptionalKeyword_1_0; }
+
+		//Type=[Type]
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+
+		//[Type]
+		public CrossReference getTypeTypeCrossReference_2_0() { return cTypeTypeCrossReference_2_0; }
+
+		//ID
+		public RuleCall getTypeTypeIDTerminalRuleCall_2_0_1() { return cTypeTypeIDTerminalRuleCall_2_0_1; }
+	}
+
 	public class DatatypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Datatype");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDatatypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cTypeAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cDefaultvalueKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cDefaultValueAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_2_2_1_0 = (RuleCall)cDefaultValueAssignment_2_2_1.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cRestrictionsRestrictionParserRuleCall_2_3_0 = (RuleCall)cRestrictionsAssignment_2_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		
 		//Datatype:
-		//	"datatype" name=ID;
+		//	"datatype" name=ID ("{" type=STRING ("defaultvalue=" defaultValue=STRING)? //TODO Will ich das?
+		//	restrictions+=Restriction* "}")?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"datatype" name=ID
+		//"datatype" name=ID ("{" type=STRING ("defaultvalue=" defaultValue=STRING)? //TODO Will ich das?
+		//restrictions+=Restriction* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//"datatype"
@@ -99,6 +156,134 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//("{" type=STRING ("defaultvalue=" defaultValue=STRING)? //TODO Will ich das?
+		//restrictions+=Restriction* "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//type=STRING
+		public Assignment getTypeAssignment_2_1() { return cTypeAssignment_2_1; }
+
+		//STRING
+		public RuleCall getTypeSTRINGTerminalRuleCall_2_1_0() { return cTypeSTRINGTerminalRuleCall_2_1_0; }
+
+		//("defaultvalue=" defaultValue=STRING)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
+		//"defaultvalue="
+		public Keyword getDefaultvalueKeyword_2_2_0() { return cDefaultvalueKeyword_2_2_0; }
+
+		//defaultValue=STRING
+		public Assignment getDefaultValueAssignment_2_2_1() { return cDefaultValueAssignment_2_2_1; }
+
+		//STRING
+		public RuleCall getDefaultValueSTRINGTerminalRuleCall_2_2_1_0() { return cDefaultValueSTRINGTerminalRuleCall_2_2_1_0; }
+
+		//restrictions+=Restriction*
+		public Assignment getRestrictionsAssignment_2_3() { return cRestrictionsAssignment_2_3; }
+
+		//Restriction
+		public RuleCall getRestrictionsRestrictionParserRuleCall_2_3_0() { return cRestrictionsRestrictionParserRuleCall_2_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+	}
+
+	public class RestrictionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Restriction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cStringrestrictionAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cStringrestrictionStringrestrictionKeyword_0_0_0 = (Keyword)cStringrestrictionAssignment_0_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cMaxlengthKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cMaxlengthAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cMaxlengthINTTerminalRuleCall_0_1_1_0 = (RuleCall)cMaxlengthAssignment_0_1_1.eContents().get(0);
+		private final Keyword cMinlengthKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cMinlengthAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cMinlengthINTTerminalRuleCall_0_3_0 = (RuleCall)cMinlengthAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cValuerestrictionAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cValuerestrictionValuerestricionKeyword_1_0_0 = (Keyword)cValuerestrictionAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cMaxvalueKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cMaxvalueAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cMaxvalueINTTerminalRuleCall_1_1_1_0 = (RuleCall)cMaxvalueAssignment_1_1_1.eContents().get(0);
+		private final Keyword cMinvalueKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cMinvalueAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cMinvalueINTTerminalRuleCall_1_3_0 = (RuleCall)cMinvalueAssignment_1_3.eContents().get(0);
+		
+		//Restriction:
+		//	stringrestriction?="stringrestriction" ("maxlength" maxlength=INT)? "minlength" minlength=INT |
+		//	valuerestriction?="valuerestricion" ("maxvalue" maxvalue=INT)? "minvalue" minvalue=INT;
+		@Override public ParserRule getRule() { return rule; }
+
+		//stringrestriction?="stringrestriction" ("maxlength" maxlength=INT)? "minlength" minlength=INT |
+		//valuerestriction?="valuerestricion" ("maxvalue" maxvalue=INT)? "minvalue" minvalue=INT
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//stringrestriction?="stringrestriction" ("maxlength" maxlength=INT)? "minlength" minlength=INT
+		public Group getGroup_0() { return cGroup_0; }
+
+		//stringrestriction?="stringrestriction"
+		public Assignment getStringrestrictionAssignment_0_0() { return cStringrestrictionAssignment_0_0; }
+
+		//"stringrestriction"
+		public Keyword getStringrestrictionStringrestrictionKeyword_0_0_0() { return cStringrestrictionStringrestrictionKeyword_0_0_0; }
+
+		//("maxlength" maxlength=INT)?
+		public Group getGroup_0_1() { return cGroup_0_1; }
+
+		//"maxlength"
+		public Keyword getMaxlengthKeyword_0_1_0() { return cMaxlengthKeyword_0_1_0; }
+
+		//maxlength=INT
+		public Assignment getMaxlengthAssignment_0_1_1() { return cMaxlengthAssignment_0_1_1; }
+
+		//INT
+		public RuleCall getMaxlengthINTTerminalRuleCall_0_1_1_0() { return cMaxlengthINTTerminalRuleCall_0_1_1_0; }
+
+		//"minlength"
+		public Keyword getMinlengthKeyword_0_2() { return cMinlengthKeyword_0_2; }
+
+		//minlength=INT
+		public Assignment getMinlengthAssignment_0_3() { return cMinlengthAssignment_0_3; }
+
+		//INT
+		public RuleCall getMinlengthINTTerminalRuleCall_0_3_0() { return cMinlengthINTTerminalRuleCall_0_3_0; }
+
+		//valuerestriction?="valuerestricion" ("maxvalue" maxvalue=INT)? "minvalue" minvalue=INT
+		public Group getGroup_1() { return cGroup_1; }
+
+		//valuerestriction?="valuerestricion"
+		public Assignment getValuerestrictionAssignment_1_0() { return cValuerestrictionAssignment_1_0; }
+
+		//"valuerestricion"
+		public Keyword getValuerestrictionValuerestricionKeyword_1_0_0() { return cValuerestrictionValuerestricionKeyword_1_0_0; }
+
+		//("maxvalue" maxvalue=INT)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//"maxvalue"
+		public Keyword getMaxvalueKeyword_1_1_0() { return cMaxvalueKeyword_1_1_0; }
+
+		//maxvalue=INT
+		public Assignment getMaxvalueAssignment_1_1_1() { return cMaxvalueAssignment_1_1_1; }
+
+		//INT
+		public RuleCall getMaxvalueINTTerminalRuleCall_1_1_1_0() { return cMaxvalueINTTerminalRuleCall_1_1_1_0; }
+
+		//"minvalue"
+		public Keyword getMinvalueKeyword_1_2() { return cMinvalueKeyword_1_2; }
+
+		//minvalue=INT
+		public Assignment getMinvalueAssignment_1_3() { return cMinvalueAssignment_1_3; }
+
+		//INT
+		public RuleCall getMinvalueINTTerminalRuleCall_1_3_0() { return cMinvalueINTTerminalRuleCall_1_3_0; }
 	}
 
 	public class MemberElements extends AbstractParserRuleElementFinder {
@@ -111,6 +296,17 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTypeTypeCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeTypeIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeTypeCrossReference_2_0.eContents().get(1);
 		
+		////StringRestriction:
+		////	("maxlength" maxlength = INT)?
+		////	"minlength" minlength = INT
+		////	
+		////;
+		////
+		////ValueRestriction:
+		////	("maxvalue" maxvalue = INT)?
+		////	"minvalue" minvalue = INT
+		////	
+		////;
 		////SecureObject:
 		////	"object" name = ID "{"
 		////		(members += Member)*
@@ -154,17 +350,25 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSuperTypeObjectCrossReference_2_1_0 = (CrossReference)cSuperTypeAssignment_2_1.eContents().get(0);
 		private final RuleCall cSuperTypeObjectIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperTypeObjectCrossReference_2_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cMembersAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cMembersMemberParserRuleCall_4_0 = (RuleCall)cMembersAssignment_4.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cMembersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cMembersMemberParserRuleCall_4_0_0 = (RuleCall)cMembersAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cRestrictionsRestrictionParserRuleCall_4_1_1_0 = (RuleCall)cRestrictionsAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
 		private final Assignment cIssecureAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final Keyword cIssecureIssecureKeyword_5_0 = (Keyword)cIssecureAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Object:
-		//	"object" name=ID ("extends" superType=[Object])? "{" members+=Member* issecure?="issecure"? "}";
+		//	"object" name=ID ("extends" superType=[Object])? "{" (members+=Member ("{" restrictions+=Restriction "}")?)*
+		//	issecure?="issecure"? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"object" name=ID ("extends" superType=[Object])? "{" members+=Member* issecure?="issecure"? "}"
+		//"object" name=ID ("extends" superType=[Object])? "{" (members+=Member ("{" restrictions+=Restriction "}")?)*
+		//issecure?="issecure"? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"object"
@@ -194,11 +398,29 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//members+=Member*
-		public Assignment getMembersAssignment_4() { return cMembersAssignment_4; }
+		//(members+=Member ("{" restrictions+=Restriction "}")?)*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//members+=Member
+		public Assignment getMembersAssignment_4_0() { return cMembersAssignment_4_0; }
 
 		//Member
-		public RuleCall getMembersMemberParserRuleCall_4_0() { return cMembersMemberParserRuleCall_4_0; }
+		public RuleCall getMembersMemberParserRuleCall_4_0_0() { return cMembersMemberParserRuleCall_4_0_0; }
+
+		//("{" restrictions+=Restriction "}")?
+		public Group getGroup_4_1() { return cGroup_4_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_4_1_0() { return cLeftCurlyBracketKeyword_4_1_0; }
+
+		//restrictions+=Restriction
+		public Assignment getRestrictionsAssignment_4_1_1() { return cRestrictionsAssignment_4_1_1; }
+
+		//Restriction
+		public RuleCall getRestrictionsRestrictionParserRuleCall_4_1_1_0() { return cRestrictionsRestrictionParserRuleCall_4_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4_1_2() { return cRightCurlyBracketKeyword_4_1_2; }
 
 		//issecure?="issecure"?
 		public Assignment getIssecureAssignment_5() { return cIssecureAssignment_5; }
@@ -230,22 +452,20 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cGetsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cInputsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cInputsTypeCrossReference_7_1_0 = (CrossReference)cInputsAssignment_7_1.eContents().get(0);
-		private final RuleCall cInputsTypeIDTerminalRuleCall_7_1_0_1 = (RuleCall)cInputsTypeCrossReference_7_1_0.eContents().get(1);
+		private final RuleCall cInputsFunctionTypeParserRuleCall_7_1_0 = (RuleCall)cInputsAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cReturnsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cOutpustAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cOutpustTypeCrossReference_8_1_0 = (CrossReference)cOutpustAssignment_8_1.eContents().get(0);
-		private final RuleCall cOutpustTypeIDTerminalRuleCall_8_1_0_1 = (RuleCall)cOutpustTypeCrossReference_8_1_0.eContents().get(1);
+		private final RuleCall cOutpustFunctionTypeParserRuleCall_8_1_0 = (RuleCall)cOutpustAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Function:
-		//	"function" name=ID ("extends" superType=[Object])? "{" "id" identifier=INT issecure?="issecure"? ("gets"
-		//	inputs+=[Type]*)? ("returns" outpust+=[Type]*)? "}";
+		//	"function" name=ID ("extends" superType=[Object])? "{" "id" identifier= //TODO unique prüfen
+		//	INT issecure?="issecure"? ("gets" inputs+=FunctionType*)? ("returns" outpust+=FunctionType*)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"function" name=ID ("extends" superType=[Object])? "{" "id" identifier=INT issecure?="issecure"? ("gets"
-		//inputs+=[Type]*)? ("returns" outpust+=[Type]*)? "}"
+		//"function" name=ID ("extends" superType=[Object])? "{" "id" identifier= //TODO unique prüfen
+		//INT issecure?="issecure"? ("gets" inputs+=FunctionType*)? ("returns" outpust+=FunctionType*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"function"
@@ -278,9 +498,11 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		//"id"
 		public Keyword getIdKeyword_4() { return cIdKeyword_4; }
 
-		//identifier=INT
+		//identifier= //TODO unique prüfen
+		//INT
 		public Assignment getIdentifierAssignment_5() { return cIdentifierAssignment_5; }
 
+		////TODO unique prüfen
 		//INT
 		public RuleCall getIdentifierINTTerminalRuleCall_5_0() { return cIdentifierINTTerminalRuleCall_5_0; }
 
@@ -290,35 +512,29 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		//"issecure"
 		public Keyword getIssecureIssecureKeyword_6_0() { return cIssecureIssecureKeyword_6_0; }
 
-		//("gets" inputs+=[Type]*)?
+		//("gets" inputs+=FunctionType*)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"gets"
 		public Keyword getGetsKeyword_7_0() { return cGetsKeyword_7_0; }
 
-		//inputs+=[Type]*
+		//inputs+=FunctionType*
 		public Assignment getInputsAssignment_7_1() { return cInputsAssignment_7_1; }
 
-		//[Type]
-		public CrossReference getInputsTypeCrossReference_7_1_0() { return cInputsTypeCrossReference_7_1_0; }
+		//FunctionType
+		public RuleCall getInputsFunctionTypeParserRuleCall_7_1_0() { return cInputsFunctionTypeParserRuleCall_7_1_0; }
 
-		//ID
-		public RuleCall getInputsTypeIDTerminalRuleCall_7_1_0_1() { return cInputsTypeIDTerminalRuleCall_7_1_0_1; }
-
-		//("returns" outpust+=[Type]*)?
+		//("returns" outpust+=FunctionType*)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"returns"
 		public Keyword getReturnsKeyword_8_0() { return cReturnsKeyword_8_0; }
 
-		//outpust+=[Type]*
+		//outpust+=FunctionType*
 		public Assignment getOutpustAssignment_8_1() { return cOutpustAssignment_8_1; }
 
-		//[Type]
-		public CrossReference getOutpustTypeCrossReference_8_1_0() { return cOutpustTypeCrossReference_8_1_0; }
-
-		//ID
-		public RuleCall getOutpustTypeIDTerminalRuleCall_8_1_0_1() { return cOutpustTypeIDTerminalRuleCall_8_1_0_1; }
+		//FunctionType
+		public RuleCall getOutpustFunctionTypeParserRuleCall_8_1_0() { return cOutpustFunctionTypeParserRuleCall_8_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -328,7 +544,9 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 	private final DomainmodelElements pDomainmodel;
 	private final AbstractElementElements pAbstractElement;
 	private final TypeElements pType;
+	private final FunctionTypeElements pFunctionType;
 	private final DatatypeElements pDatatype;
+	private final RestrictionElements pRestriction;
 	private final MemberElements pMember;
 	private final ObjectElements pObject;
 	private final FunctionElements pFunction;
@@ -345,7 +563,9 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDomainmodel = new DomainmodelElements();
 		this.pAbstractElement = new AbstractElementElements();
 		this.pType = new TypeElements();
+		this.pFunctionType = new FunctionTypeElements();
 		this.pDatatype = new DatatypeElements();
+		this.pRestriction = new RestrictionElements();
 		this.pMember = new MemberElements();
 		this.pObject = new ObjectElements();
 		this.pFunction = new FunctionElements();
@@ -378,7 +598,10 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Domainmodel:
+	/// * TODOS
+	// * function generator
+	// * unique function IDs
+	// * / Domainmodel:
 	//	elements+=AbstractElement*;
 	public DomainmodelElements getDomainmodelAccess() {
 		return pDomainmodel;
@@ -409,8 +632,20 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeAccess().getRule();
 	}
 
+	////TODO in generator einbauen
+	//FunctionType:
+	//	repeat?="repeat"? optional?="optional"? Type=[Type];
+	public FunctionTypeElements getFunctionTypeAccess() {
+		return pFunctionType;
+	}
+	
+	public ParserRule getFunctionTypeRule() {
+		return getFunctionTypeAccess().getRule();
+	}
+
 	//Datatype:
-	//	"datatype" name=ID;
+	//	"datatype" name=ID ("{" type=STRING ("defaultvalue=" defaultValue=STRING)? //TODO Will ich das?
+	//	restrictions+=Restriction* "}")?;
 	public DatatypeElements getDatatypeAccess() {
 		return pDatatype;
 	}
@@ -419,6 +654,28 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 		return getDatatypeAccess().getRule();
 	}
 
+	//Restriction:
+	//	stringrestriction?="stringrestriction" ("maxlength" maxlength=INT)? "minlength" minlength=INT |
+	//	valuerestriction?="valuerestricion" ("maxvalue" maxvalue=INT)? "minvalue" minvalue=INT;
+	public RestrictionElements getRestrictionAccess() {
+		return pRestriction;
+	}
+	
+	public ParserRule getRestrictionRule() {
+		return getRestrictionAccess().getRule();
+	}
+
+	////StringRestriction:
+	////	("maxlength" maxlength = INT)?
+	////	"minlength" minlength = INT
+	////	
+	////;
+	////
+	////ValueRestriction:
+	////	("maxvalue" maxvalue = INT)?
+	////	"minvalue" minvalue = INT
+	////	
+	////;
 	////SecureObject:
 	////	"object" name = ID "{"
 	////		(members += Member)*
@@ -435,7 +692,8 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Object:
-	//	"object" name=ID ("extends" superType=[Object])? "{" members+=Member* issecure?="issecure"? "}";
+	//	"object" name=ID ("extends" superType=[Object])? "{" (members+=Member ("{" restrictions+=Restriction "}")?)*
+	//	issecure?="issecure"? "}";
 	public ObjectElements getObjectAccess() {
 		return pObject;
 	}
@@ -445,8 +703,8 @@ public class MetamodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Function:
-	//	"function" name=ID ("extends" superType=[Object])? "{" "id" identifier=INT issecure?="issecure"? ("gets"
-	//	inputs+=[Type]*)? ("returns" outpust+=[Type]*)? "}";
+	//	"function" name=ID ("extends" superType=[Object])? "{" "id" identifier= //TODO unique prüfen
+	//	INT issecure?="issecure"? ("gets" inputs+=FunctionType*)? ("returns" outpust+=FunctionType*)? "}";
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}

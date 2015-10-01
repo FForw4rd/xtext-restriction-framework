@@ -2,6 +2,12 @@ grammar at.tugraz.xtext.metamodel.Metamodel with org.eclipse.xtext.common.Termin
 
 generate metamodel "http://www.tugraz.at/xtext/metamodel/Metamodel"
 
+/* TODOS
+ * function generator
+ * unique function IDs
+ */
+
+
 Domainmodel: 
   (elements += AbstractElement)*
 ;
@@ -14,32 +20,37 @@ Type:
 	Datatype | Object //| SecureObject
 ;
 
-RegExType:
-	Type | "(optional)" Type | "(repeat)" Type
+FunctionType: //TODO in generator einbauen
+	(repeat ?= "repeat")? (optional ?= "optional")? Type=[Type]
 ;
+
 
 Datatype:
 	"datatype" name = ID ("{"
+		type = STRING
 		("defaultvalue=" defaultValue = STRING)? //TODO Will ich das?
 		(restrictions += Restriction)*
 	"}")?
 ;
 
 Restriction:
-	StringRestriction | ValueRestriction
+	(stringrestriction ?= "stringrestriction" ("maxlength" maxlength = INT)?
+	"minlength" minlength = INT) |
+	(valuerestriction ?="valuerestricion" ("maxvalue" maxvalue = INT)?
+	"minvalue" minvalue = INT)
 ;
 
-StringRestriction:
-	"maxlength" maxlength = INT
-	"minlength" minlength = INT
-	
-;
-
-ValueRestriction:
-	"maxvalue" maxvalue = INT
-	"minvalue" minvalue = INT
-	
-;
+//StringRestriction:
+//	("maxlength" maxlength = INT)?
+//	"minlength" minlength = INT
+//	
+//;
+//
+//ValueRestriction:
+//	("maxvalue" maxvalue = INT)?
+//	"minvalue" minvalue = INT
+//	
+//;
 
 //SecureObject:
 //	"object" name = ID "{"
@@ -53,9 +64,9 @@ Member:
 
 Object:
 	"object" name = ID ('extends' superType = [Object])? "{"
-		(members += Member ( "{"
+		(members += Member ("{"
 			restrictions += Restriction
-			"}")*
+			"}")?
 		)*
 		(issecure ?= "issecure")?
 	"}"
@@ -65,8 +76,8 @@ Function:
 	"function" name = ID ('extends' superType = [Object])? "{"
 		"id" identifier = INT //TODO unique prüfen
 		(issecure ?= "issecure")?
-		("gets" inputs+=[RegExType]* )? 
-		("returns" outpust+=[RegExType]* )?
+		("gets" inputs+=FunctionType* )? 
+		("returns" outpust+=FunctionType* )?
 		
 	"}"
 ;
