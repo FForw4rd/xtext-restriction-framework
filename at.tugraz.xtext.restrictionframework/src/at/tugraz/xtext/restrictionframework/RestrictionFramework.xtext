@@ -1,0 +1,9 @@
+grammar at.tugraz.xtext.restrictionframework.RestrictionFramework with org.eclipse.xtext.xbase.Xbase
+
+generate restrictionFramework "http://www.tugraz.at/xtext/restrictionframework/RestrictionFramework"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
