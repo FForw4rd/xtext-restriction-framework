@@ -29,28 +29,26 @@ Datatype:
 	"datatype" name = ID ("{"
 		type = STRING
 		("defaultvalue=" defaultValue = STRING)? //TODO Will ich das?
-		(restrictions += Restriction)*
+		(DataRestriction = Restriction)?
 	"}")?
 ;
 
 Restriction:
-	(stringrestriction ?= "stringrestriction" ("maxlength" maxlength = INT)?
-	"minlength" minlength = INT) |
-	(valuerestriction ?="valuerestricion" ("maxvalue" maxvalue = INT)?
-	"minvalue" minvalue = INT)
+	StringRestriction | ValueRestriction
 ;
 
-//StringRestriction:
-//	("maxlength" maxlength = INT)?
-//	"minlength" minlength = INT
-//	
-//;
-//
-//ValueRestriction:
-//	("maxvalue" maxvalue = INT)?
-//	"minvalue" minvalue = INT
-//	
-//;
+
+StringRestriction:
+	"maxlength" maxlength = INT
+	"minlength" minlength = INT
+	
+;
+
+ValueRestriction:
+	"maxvalue" maxvalue = INT
+	"minvalue" minvalue = INT
+	
+;
 
 //SecureObject:
 //	"object" name = ID "{"
@@ -59,10 +57,10 @@ Restriction:
 //;
 
 Member:
-	name = ID ':' type = [Type]
+	name = ID ':' type = ([Type])
 ;
 
-Object:
+Object: 
 	"object" name = ID ('extends' superType = [Object])? "{"
 		(members += Member ("{"
 			restrictions += Restriction
