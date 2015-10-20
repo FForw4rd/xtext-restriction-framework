@@ -2,8 +2,71 @@ grammar at.tugraz.xtext.restrictionframework.RestrictionFramework with org.eclip
 
 generate restrictionFramework "http://www.tugraz.at/xtext/restrictionframework/RestrictionFramework"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+//ending: *.rest
+
+Domainmodel:
+  importSection=XImportSection?
+  elements+=AbstractElement*;
+ 
+AbstractElement:
+  PackageDeclaration | Entity;
+ 
+PackageDeclaration:
+  'package' name=QualifiedName '{'
+    elements+=AbstractElement*
+  '}';
+  
+// Entity:
+//  'entity' name=ValidID 
+//    ('extends' superType=JvmTypeReference)? '{'
+//    features+=Feature*
+//  '}';
+
+Entity:
+	Parameter | Function | Object
+;
+Parameter:
+	"parameter" name=ValidID ':' type=JvmTypeReference 
+	( '{'
+		(defaultValue = STRING)? //TODO needed?
+		ParameterRestriction = Restriction
+	'}')?
+;
+
+Restriction:
+	StringRestriction | ValueRestriction
+;
+
+StringRestriction:
+	"minlength" minlength = INT
+	"maxlength" maxlength = INT 
+;
+
+ValueRestriction:
+	"minvalue" minvalue = INT
+	"maxvalue" maxvalue = INT
+;
+
+Object:
+	"object" name = ValidID ('extends' superType=JvmTypeReference)? '{'
+		(members += Member)+
+		(issecure ?= "issecure")?
+	"}"
+;
+
+Member:
+	name = ID ':' type = JvmTypeReference
+;
+
+Function:
+	"function" name=ValidID ID ('extends' superType = [Object])? "{"
+		"id" identifier = ValidID
+		("gets" input+= FunctionParameter)?
+		("returns" output += FunctionParameter)?
+		(issecure ?= "issecure")?
+	"}"
+;
+
+FunctionParameter:
+	(repeat ?= "repeat")? (optional ?= "optional")? Type=JvmTypeReference
+;

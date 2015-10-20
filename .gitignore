@@ -1,2 +1,6 @@
 at.tugraz.xtext.metamodel*/src-gen/*
+at.tugraz.xtext.restrictionframework*/src-gen/*
 at.tugraz.xtext.metamodel/model/generated/*
+at.tugraz.xtext.restrictionframework/model/generated/*
+at.tugraz.xtext.restrictionframework.ui/plugin.xml_gen
+
