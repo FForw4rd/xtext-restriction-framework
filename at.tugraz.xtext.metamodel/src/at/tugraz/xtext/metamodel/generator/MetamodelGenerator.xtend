@@ -6,20 +6,11 @@ package at.tugraz.xtext.metamodel.generator
 import at.tugraz.xtext.metamodel.metamodel.Datatype
 import at.tugraz.xtext.metamodel.metamodel.Member
 import at.tugraz.xtext.metamodel.metamodel.Object
-import at.tugraz.xtext.metamodel.metamodel.StringRestriction
-import at.tugraz.xtext.metamodel.metamodel.ValueRestriction
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.xtext.generator.IFileSystemAccess
-import at.tugraz.xtext.metamodel.metamodel.Object
 import org.eclipse.xtext.naming.IQualifiedNameProvider
- 
-import com.google.inject.Inject
-import at.tugraz.xtext.metamodel.metamodel.Member
-import at.tugraz.xtext.metamodel.metamodel.Datatype
-import at.tugraz.xtext.metamodel.metamodel.Restriction
 
 class MetamodelGenerator implements IGenerator {
  
@@ -34,7 +25,8 @@ class MetamodelGenerator implements IGenerator {
     for(currDatatype: resource.allContents.toIterable.filter(Datatype)) {
       fsa.generateFile(
         currDatatype.fullyQualifiedName.toString("/") + ".java",
-        currDatatype.compile)
+    //    currDatatype.generateDatatype
+        DatatypeGenerator.generateDatatype(currDatatype))
     }
   }
  
@@ -73,23 +65,23 @@ class MetamodelGenerator implements IGenerator {
     }
   '''
   
-  def compile(Datatype d) '''
-  	public class «d.name» {
-  	  private «d.type» «d.name» «IF d.defaultValue !=null»=«d.defaultValue» «ENDIF»
-  	
-  	  public «d.type» get«d.name.toFirstUpper»() {
-  	    return «d.name»
-  	  }
-  	  public void set«d.name.toFirstUpper»(«d.type» «d.name»){
-  	  «IF(d.dataRestriction != null)»
-  	  	«switch d.dataRestriction {
-  	  		StringRestriction : d.stringRestrictionSetter(d.dataRestriction as StringRestriction)
-  	  		ValueRestriction : d.valueRestrictionSetter(d.dataRestriction as ValueRestriction)
-  	  	}»
-  	  «ELSE»
-  	    this.«d.name» = «d.name»;
-  	«ENDIF»
-  	  }
-  	}
-  '''
+//  def compile(Datatype d) '''
+//  	public class «d.name» {
+//  	  private «d.type» «d.name» «IF d.defaultValue !=null»=«d.defaultValue» «ENDIF»
+//  	
+//  	  public «d.type» get«d.name.toFirstUpper»() {
+//  	    return «d.name»
+//  	  }
+//  	  public void set«d.name.toFirstUpper»(«d.type» «d.name»){
+//  	  «IF(d.dataRestriction != null)»
+//  	  	«switch d.dataRestriction {
+//  	  		StringRestriction : d.stringRestrictionSetter(d.dataRestriction as StringRestriction)
+//  	  		ValueRestriction : d.valueRestrictionSetter(d.dataRestriction as ValueRestriction)
+//  	  	}»
+//  	  «ELSE»
+//  	    this.«d.name» = «d.name»;
+//  	«ENDIF»
+//  	  }
+//  	}
+//  '''
 }
