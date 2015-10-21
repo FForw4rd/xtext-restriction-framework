@@ -14,7 +14,6 @@ class ObjectGenerator {
 		«FOR f:e.members»
 			«f.generateMembers»
 		«ENDFOR»
-		}
   	'''
   
 	def static generateMembers(Member f) '''

@@ -55,19 +55,19 @@ Object:
 ;
 
 Member:
-	name = ID ':' type = JvmTypeReference
+	name = ID ':' type = JvmTypeReference // TODO: geht nit mit [Datatype]
 ;
 
 Function:
-	"function" name=ValidID ID ('extends' superType = [Object])? "{"
-		"id" identifier = ValidID
-		("gets" input+= FunctionParameter)?
-		("returns" output += FunctionParameter)?
+	"function" name=ValidID ('extends' superType = [Object])? "{"
+		"id" identifier = INT // TODO identifieruniquechecking
 		(issecure ?= "issecure")?
+		("gets" input+= FunctionParameter)? // TODO: Wo soll ich das überprüfen?
+		("returns" output += FunctionParameter)?
 	"}"
 ;
 
-FunctionParameter:
+FunctionParameter: // TODO: "repeat String, repeat int" soll "String, int, String, int, String, int, ..." sein?
 	(repeat ?= "repeat")? (optional ?= "optional")? Type=JvmTypeReference
 ;
 

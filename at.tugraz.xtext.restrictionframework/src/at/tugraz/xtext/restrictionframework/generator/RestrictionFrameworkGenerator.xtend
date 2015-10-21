@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import at.tugraz.xtext.restrictionframework.restrictionFramework.Function
 
 /**
  * Generates code from your model files on save.
@@ -21,26 +22,42 @@ class RestrictionFrameworkGenerator implements IGenerator {
   @Inject extension IQualifiedNameProvider
  
   override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-    for(e: resource.allContents.toIterable.filter(Object)) {
+    for(currObject: resource.allContents.toIterable.filter(Object)) {
       fsa.generateFile(
-        e.fullyQualifiedName.toString("/") + ".java",
-        e.generateObject)
+        currObject.fullyQualifiedName.toString("/") + ".java",
+        currObject.generateObject)
     }
     for(currDatatype: resource.allContents.toIterable.filter(Datatype)) {
       fsa.generateFile(
         currDatatype.fullyQualifiedName.toString("/") + ".java",
-    //    currDatatype.generateDatatype
         DatatypeGenerator.generateDatatype(currDatatype))
+    }
+    for(currFunction: resource.allContents.toIterable.filter(Function)) {
+      fsa.generateFile(
+        currFunction.fullyQualifiedName.toString("/") + ".java",
+        currFunction.generateFunction)
     }
   }
  
   def generateObject(Object e) ''' 
     «IF e.eContainer.fullyQualifiedName != null»
-      package «e.eContainer.fullyQualifiedName»;
+      package «e.eContainer.fullyQualifiedName»
     «ENDIF»
     
     public class «e.name» «IF e.superType != null
             »extends «e.superType.fullyQualifiedName» «ENDIF»{
       «ObjectGenerator.generateObjectContent(e)»
+    }
+  '''
+  
+  def generateFunction(Function f)'''
+    «IF f.eContainer.fullyQualifiedName != null»
+      package «f.eContainer.fullyQualifiedName»
+    «ENDIF»
+    
+    public class «f.name» «IF f.superType != null
+            »extends «f.superType.fullyQualifiedName» «ENDIF»{
+      «FunctionGenerator.generateFunctionContent(f)»
+    }
   '''
 }
