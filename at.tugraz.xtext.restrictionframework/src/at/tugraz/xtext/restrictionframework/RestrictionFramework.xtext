@@ -28,7 +28,7 @@ Entity:
 Datatype:
 	"datatype" name=ValidID ':' type=JvmTypeReference 
 	( '{'
-		(defaultValue = STRING)? //TODO needed?
+		("default" "="defaultValue = STRING)? //TODO needed?
 		thisRestriction = Restriction
 	'}')?
 ;

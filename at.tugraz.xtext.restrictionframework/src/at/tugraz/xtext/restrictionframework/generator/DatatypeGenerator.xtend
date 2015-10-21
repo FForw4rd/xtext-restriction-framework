@@ -6,36 +6,47 @@ import at.tugraz.xtext.restrictionframework.restrictionFramework.ValueRestrictio
 
 class DatatypeGenerator {
 	
-	def static generateDatatype(Datatype d) '''
-  	public class «d.name» {
-  	  private «d.type» «d.name» «IF d.defaultValue !=null»=«d.defaultValue» «ENDIF»
-  	
-  	  public «d.type» get«d.name.toFirstUpper»() {
-  	    return «d.name»
-  	  }
-  	  public void set«d.name.toFirstUpper»(«d.type» «d.name»){
-  	  «IF(d.thisRestriction != null)»
-  	  	«switch d.thisRestriction {
+	var static variables = ""
+	var static setterCondition = ""
+	
+	def static generateDatatype(Datatype d) {
+		switch d.thisRestriction {
   	  		StringRestriction : d.stringRestrictionSetter(d.thisRestriction as StringRestriction)
   	  		ValueRestriction : d.valueRestrictionSetter(d.thisRestriction as ValueRestriction)
-  	  	}»
-  	  «ELSE»
-  	    this.«d.name» = «d.name»;
-  	«ENDIF»
-  	  }
-  	}
-  '''
-	
-	def static valueRestrictionSetter(Datatype d, ValueRestriction restriction) '''
-	if(«restriction.minvalue» < «d.name» < «restriction.maxvalue») {
-		this.«d.name» = «d.name»
-	}
-	'''
-	
-	def static stringRestrictionSetter(Datatype d, StringRestriction restriction) '''
-	if(«restriction.minlength» < «d.name».getlength < «restriction.maxlength») {
-		this.«d.name» = «d.name»
-	}
+  	  	}
 		'''
+	  	public class «d.name» {
+	  	  private «d.type.qualifiedName» «d.name» «IF d.defaultValue !=null»=«d.defaultValue» «ENDIF»
+	  	  «variables»
+	  	
+	  	  public «d.type.qualifiedName» get«d.name.toFirstUpper»() {
+	  	    return «d.name»
+	  	  }
+	  	  public void set«d.name.toFirstUpper»(«d.type.qualifiedName» «d.name»){
+	  	    «IF(d.thisRestriction != null)»
+	  	    if(«setterCondition») {
+	  	      this.«d.name» = «d.name»;
+	  	    }
+	  	    «ELSE»
+	  	    this.«d.name» = «d.name»;
+	  	  «ENDIF»
+	  	  }
+	  	}
+ 		'''
+	}
+	
+	def static valueRestrictionSetter(Datatype d, ValueRestriction restriction) {
+		variables = "private int minValue = " + restriction.minvalue + "\n"
+		variables += "private int maxValue = " + restriction.maxvalue + "\n"
+		
+		setterCondition = "minValue < " + d.name + " < maxValue"
+	}
+	
+	def static stringRestrictionSetter(Datatype d, StringRestriction restriction) {
+		variables = "private int minLength = " + restriction.minlength + "\n"
+		variables += "private int maxLength = " + restriction.maxlength + "\n"
+		
+		setterCondition = "minLength < " + d.name + ".getlength < maxLength"
+	}
 	
 }
