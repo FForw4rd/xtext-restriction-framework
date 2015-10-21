@@ -3,4 +3,7 @@ at.tugraz.xtext.restrictionframework*/*-gen/*
 at.tugraz.xtext.metamodel/model/generated/*
 at.tugraz.xtext.restrictionframework/model/generated/*
 at.tugraz.xtext.restrictionframework.ui/plugin.xml_gen
+at.tugraz.xtext.metamodel.ui/bin/
+at.tugraz.xtext.metamodel/.antlr-generator-3.2.0-patch.jar
+at.tugraz.xtext.restrictionframework/.antlr-generator-3.2.0-patch.jar
 
