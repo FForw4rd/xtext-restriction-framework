@@ -23,7 +23,7 @@ PackageDeclaration:
 //  '}';
 
 Entity:
-	Datatype | Function | Object
+	Datatype | Function | Object | FunctionBlock
 ;
 Datatype:
 	"datatype" name=ValidID ':' type=JvmTypeReference 
@@ -49,8 +49,8 @@ ValueRestriction:
 
 Object:
 	"object" name = ValidID ('extends' superType=JvmTypeReference)? '{'
-		(members += Member)+
 		(issecure ?= "issecure")?
+		(members += Member)+
 	"}"
 ;
 
@@ -69,4 +69,10 @@ Function:
 
 FunctionParameter:
 	(repeat ?= "repeat")? (optional ?= "optional")? Type=JvmTypeReference
+;
+
+FunctionBlock:
+	"FunctionBlock" name=ValidID "{"
+	(functions += ([Function] | FunctionBlock))+
+	"}"
 ;
