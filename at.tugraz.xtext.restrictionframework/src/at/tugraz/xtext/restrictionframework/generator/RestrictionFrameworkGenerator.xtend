@@ -6,6 +6,11 @@ package at.tugraz.xtext.restrictionframework.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import com.google.inject.Inject
+import at.tugraz.xtext.restrictionframework.restrictionFramework.Object
+import at.tugraz.xtext.restrictionframework.restrictionFramework.Datatype
+import at.tugraz.xtext.restrictionframework.restrictionFramework.Member
 
 /**
  * Generates code from your model files on save.
@@ -14,11 +19,54 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  */
 class RestrictionFrameworkGenerator implements IGenerator {
 	
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
-	}
+  @Inject extension IQualifiedNameProvider
+ 
+  override void doGenerate(Resource resource, IFileSystemAccess fsa) {
+    for(e: resource.allContents.toIterable.filter(Object)) {
+      fsa.generateFile(
+        e.fullyQualifiedName.toString("/") + ".java",
+        e.compile)
+    }
+    for(currDatatype: resource.allContents.toIterable.filter(Datatype)) {
+      fsa.generateFile(
+        currDatatype.fullyQualifiedName.toString("/") + ".java",
+    //    currDatatype.generateDatatype
+        DatatypeGenerator.generateDatatype(currDatatype))
+    }
+  }
+ 
+  def compile(Object e) ''' 
+    «IF e.eContainer.fullyQualifiedName != null»
+      package «e.eContainer.fullyQualifiedName»;
+    «ENDIF»
+    
+    public class «e.name» «IF e.superType != null
+            »extends «e.superType.fullyQualifiedName» «ENDIF»{
+      «e.secure»
+      «FOR f:e.members»
+        «f.compile»
+      «ENDFOR»
+    }
+  '''
+	
+  def secure(Object e) '''
+    private static final boolean issecure = «e.isIssecure»;
+    
+    public bool isSecure() {
+      return this.issecure
+    }
+    
+  '''
+ 
+  def compile(Member f) '''
+    private «f.type.fullyQualifiedName» «f.name»;
+    
+    public «f.type.fullyQualifiedName» get«f.name.toFirstUpper»() {
+      return «f.name»;
+    }
+    
+    public void set«f.name.toFirstUpper»(«f.type.fullyQualifiedName» «f.name») {
+      this.«f.name» = «f.name»;
+    }
+  '''
 }

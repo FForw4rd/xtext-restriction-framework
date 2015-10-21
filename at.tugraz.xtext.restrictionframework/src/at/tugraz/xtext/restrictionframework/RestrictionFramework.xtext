@@ -23,13 +23,13 @@ PackageDeclaration:
 //  '}';
 
 Entity:
-	Parameter | Function | Object
+	Datatype | Function | Object
 ;
-Parameter:
-	"parameter" name=ValidID ':' type=JvmTypeReference 
+Datatype:
+	"datatype" name=ValidID ':' type=JvmTypeReference 
 	( '{'
 		(defaultValue = STRING)? //TODO needed?
-		ParameterRestriction = Restriction
+		thisRestriction = Restriction
 	'}')?
 ;
 
