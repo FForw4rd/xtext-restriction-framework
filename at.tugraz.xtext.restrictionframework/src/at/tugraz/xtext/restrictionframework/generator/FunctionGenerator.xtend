@@ -8,11 +8,11 @@ class FunctionGenerator {
 	private final int id = «f.identifier»;
 	private final boolean issecure = «f.isIssecure»;
 		
-	public bool isSecure() {
-	  return this.issecure
+	public boolean isSecure() {
+	  return this.issecure;
 	}
-	public int getId {
-	  return this.id
+	public int getId () {
+	  return this.id;
 	}
 	'''
 	

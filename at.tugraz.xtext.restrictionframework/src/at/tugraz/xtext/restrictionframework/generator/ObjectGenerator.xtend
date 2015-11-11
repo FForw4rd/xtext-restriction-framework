@@ -8,9 +8,10 @@ class ObjectGenerator {
 	def static generateObjectContent(Object e) ''' 
 		private final boolean issecure = «e.isIssecure»;
 		
-		public bool isSecure() {
-		  return this.issecure
+		public boolean isSecure() {
+		  return this.issecure;
 		}
+		
 		«FOR f:e.members»
 			«f.generateMembers»
 		«ENDFOR»

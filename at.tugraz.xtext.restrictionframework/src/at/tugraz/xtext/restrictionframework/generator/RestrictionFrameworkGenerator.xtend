@@ -30,7 +30,7 @@ class RestrictionFrameworkGenerator implements IGenerator {
     for(currDatatype: resource.allContents.toIterable.filter(Datatype)) {
       fsa.generateFile(
         currDatatype.fullyQualifiedName.toString("/") + ".java",
-        DatatypeGenerator.generateDatatype(currDatatype))
+        currDatatype.generateDatatype)
     }
     for(currFunction: resource.allContents.toIterable.filter(Function)) {
       fsa.generateFile(
@@ -38,10 +38,17 @@ class RestrictionFrameworkGenerator implements IGenerator {
         currFunction.generateFunction)
     }
   }
+  
+  def generateDatatype(Datatype e) ''' 
+    «IF e.eContainer.fullyQualifiedName != null»
+      package «e.eContainer.fullyQualifiedName»;
+    «ENDIF»
+    «DatatypeGenerator.generateDatatypeContent(e)»
+  '''
  
   def generateObject(Object e) ''' 
     «IF e.eContainer.fullyQualifiedName != null»
-      package «e.eContainer.fullyQualifiedName»
+      package «e.eContainer.fullyQualifiedName»;
     «ENDIF»
     
     public class «e.name» «IF e.superType != null
@@ -52,7 +59,7 @@ class RestrictionFrameworkGenerator implements IGenerator {
   
   def generateFunction(Function f)'''
     «IF f.eContainer.fullyQualifiedName != null»
-      package «f.eContainer.fullyQualifiedName»
+      package «f.eContainer.fullyQualifiedName»;
     «ENDIF»
     
     public class «f.name» «IF f.superType != null
