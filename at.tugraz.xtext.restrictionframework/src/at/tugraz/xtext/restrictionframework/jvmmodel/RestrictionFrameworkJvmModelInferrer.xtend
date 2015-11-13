@@ -4,7 +4,8 @@ import com.google.inject.Inject
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import at.tugraz.xtext.restrictionframework.restrictionFramework.Domainmodel
+import at.tugraz.xtext.restrictionframework.restrictionFramework.Entity
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -18,6 +19,7 @@ class RestrictionFrameworkJvmModelInferrer extends AbstractModelInferrer {
      * convenience API to build and initialize JVM types and their members.
      */
 	@Inject extension JvmTypesBuilder
+	@Inject extension IQualifiedNameProvider
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -44,7 +46,7 @@ class RestrictionFrameworkJvmModelInferrer extends AbstractModelInferrer {
 	 *            rely on linking using the index if isPreIndexingPhase is
 	 *            <code>true</code>.
 	 */
-   	def dispatch void infer(Domainmodel element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+   	def dispatch void infer(Entity element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
    		// Here you explain how your model is mapped to Java elements, by writing the actual translation code.
    		
    		// An implementation for the initial hello world example could look like this:
@@ -57,6 +59,8 @@ class RestrictionFrameworkJvmModelInferrer extends AbstractModelInferrer {
 //   				]
 //   			}
 //   		]
+
+		acceptor.accept(element.toClass( element.fullyQualifiedName ))
    	}
 }
 
