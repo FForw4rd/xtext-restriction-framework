@@ -24,6 +24,7 @@ PackageDeclaration:
 
 Entity:
 	Datatype | Function | Object | FunctionBlock
+//	Datatype | Function | Object
 ;
 
 
@@ -65,8 +66,8 @@ Function:
 	"function" name=ValidID ('extends' superType = [Object])? "{"
 		"id" identifier = INT // TODO identifieruniquechecking
 		(issecure ?= "issecure")?
-		("gets" input+= FunctionParameter)? // TODO: Wo soll ich das überprüfen?
-		("returns" output += FunctionParameter)?
+		("gets" input+= FunctionParameter+)? // TODO: Wo soll ich das überprüfen?
+		("returns" output += FunctionParameter+)?
 	"}"
 ;
 
@@ -76,7 +77,11 @@ FunctionParameter: // TODO: "repeat String, repeat int" soll "String, int, Strin
 
 FunctionBlock:
 	"FunctionBlock" name=ValidID "{"
-	(functions += ([Function] | FunctionBlock))+
+	(functions += [FunctionsNBlocks])+
 	"}"
+;
+
+FunctionsNBlocks:
+	FunctionBlock | Function
 ;
 
