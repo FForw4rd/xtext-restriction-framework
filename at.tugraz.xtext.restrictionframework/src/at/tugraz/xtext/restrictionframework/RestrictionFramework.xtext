@@ -33,6 +33,7 @@ Datatype:
 	"datatype" name=ValidID ':' type=JvmTypeReference 
 	( '{'
 		("default" "="defaultValue = STRING)? //TODO needed?
+		(issecure ?= "issecure")?
 		thisRestriction = Restriction
 	'}')?
 ;
@@ -65,9 +66,10 @@ Member:
 Function:
 	"function" name=ValidID ('extends' superType = [Object])? "{"
 		"id" identifier = INT // TODO identifieruniquechecking
-		(issecure ?= "issecure")?
+		// (issecure ?= "issecure")?
 		("gets" input+= FunctionParameter+)? // TODO: Wo soll ich das überprüfen?
 		("returns" output += FunctionParameter+)?
+		("securitytransition" secTrans= SecurityTransition)?
 	"}"
 ;
 
@@ -75,13 +77,18 @@ FunctionParameter: // TODO: "repeat String, repeat int" soll "String, int, Strin
 	(repeat ?= "repeat")? (optional ?= "optional")? Type=JvmTypeReference
 ;
 
+SecurityTransition:
+	"(" objects += JvmTypeReference+ ")"
+	   body=XBlockExpression
+;
+
 FunctionBlock:
 	"FunctionBlock" name=ValidID "{"
-	(functions += [FunctionsNBlocks])+
+	(functions += [FunctionsAndBlocks])+
 	"}"
 ;
 
-FunctionsNBlocks:
+FunctionsAndBlocks:
 	FunctionBlock | Function
 ;
 

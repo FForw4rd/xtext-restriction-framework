@@ -6,7 +6,7 @@ import at.tugraz.xtext.restrictionframework.restrictionFramework.Object
 class ObjectGenerator {
 	
 	def static generateObjectContent(Object e) ''' 
-		private final boolean issecure = «e.isIssecure»;
+		private boolean issecure = «e.isIssecure»;
 		
 		public boolean isSecure() {
 		  return this.issecure;

@@ -6,7 +6,7 @@ class FunctionGenerator {
 	
 	def static generateFunctionContent(Function f) '''
 	private final int id = «f.identifier»;
-	private final boolean issecure = «f.isIssecure»;
+«««	private final boolean issecure = «f.isIssecure»;
 		
 	public boolean isSecure() {
 	  return this.issecure;

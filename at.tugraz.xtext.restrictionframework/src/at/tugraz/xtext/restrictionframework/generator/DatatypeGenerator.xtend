@@ -46,7 +46,7 @@ class DatatypeGenerator {
 		variables = "private int minLength = " + restriction.minlength + ";\n"
 		variables += "private int maxLength = " + restriction.maxlength + ";\n"
 		
-		setterCondition = "minLength < " + d.name + ".getlength < maxLength"
+		setterCondition = "minLength < " + d.name + ".length() || " + d.name + ".length() < maxLength"
 	}
 	
 }
